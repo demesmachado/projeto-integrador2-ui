@@ -1,0 +1,5 @@
+/* pacientes.css (professional) */
+
+#corpo-tabela-pacientes td:first-child {
+  font-weight: 500;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saúde Digital — Painel do Profissional</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/global.css" />
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar" id="topbar"></header>
+    <div class="app-body">
+      <nav class="sidebar" id="sidebar"></nav>
+      <main class="conteudo">
+        <div class="cabecalho-pagina">
+          <div>
+            <h1>Olá, <span id="nome-profissional">...</span> 👋</h1>
+            <p class="texto-suave">Este é o resumo da sua agenda e dos seus pacientes hoje.</p>
+          </div>
+        </div>
+
+        <div class="grade-cartoes">
+          <div class="cartao-metrica">
+            <span class="rotulo">Pacientes vinculados</span>
+            <span class="valor" id="m-pacientes">0</span>
+          </div>
+          <div class="cartao-metrica">
+            <span class="rotulo">Consultas confirmadas hoje</span>
+            <span class="valor" id="m-hoje">0</span>
+          </div>
+          <div class="cartao-metrica">
+            <span class="rotulo">Solicitações pendentes</span>
+            <span class="valor" id="m-pendentes">0</span>
+          </div>
+        </div>
+
+        <div class="painel-flex">
+          <div class="cartao">
+            <h2>Próximas consultas</h2>
+            <div class="wrapper-tabela">
+              <table>
+                <thead><tr><th>Data</th><th>Hora</th><th>Paciente</th><th>Status</th></tr></thead>
+                <tbody id="corpo-proximas"></tbody>
+              </table>
+            </div>
+            <a class="botao botao-contorno botao-pequeno" href="agenda.html" style="margin-top:12px">Abrir agenda</a>
+          </div>
+
+          <div class="cartao">
+            <h2>Atalhos</h2>
+            <div class="grupo-botoes" style="flex-direction:column;align-items:stretch">
+              <a class="botao botao-primario" href="agenda.html">+ Novo horário</a>
+              <a class="botao botao-secundario" href="pacientes.html">Ver pacientes</a>
+              <a class="botao botao-contorno" href="notificacoes.html">Enviar notificação</a>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/aplicacao.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>

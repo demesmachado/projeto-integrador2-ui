@@ -1,0 +1,95 @@
+/* paciente-detalhe.css (professional) */
+
+.link-voltar {
+  display: inline-block;
+  margin-bottom: 14px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--cor-texto-suave);
+  text-decoration: none;
+}
+
+.link-voltar:hover { color: var(--cor-primaria-escura); }
+
+.cartao-perfil-paciente {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.cartao-perfil-paciente .avatar-inicial {
+  width: 52px;
+  height: 52px;
+  font-size: 20px;
+}
+
+.cartao-perfil-paciente .meta-paciente {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--cor-texto-suave);
+}
+
+.item-historico {
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-pequeno);
+  padding: 12px 14px;
+  margin-bottom: 10px;
+}
+
+.item-historico .cabecalho-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.item-historico .chips-dados {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 12.5px;
+}
+
+.chip-dado {
+  background: var(--verde-50);
+  border-radius: 100px;
+  padding: 3px 10px;
+  color: var(--cor-primaria-escura);
+  font-weight: 500;
+}
+
+.item-evolucao {
+  border-left: 3px solid var(--cor-primaria);
+  padding: 6px 0 6px 12px;
+  margin-bottom: 12px;
+}
+
+.item-evolucao .cabecalho-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.notificacao-mini {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--cor-borda);
+  font-size: 13.5px;
+}
+
+.notificacao-mini:last-child { border-bottom: none; }
+
+.item-recomendacao {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--cor-borda);
+  font-size: 13.5px;
+}
+
+.item-recomendacao:last-child { border-bottom: none; }
