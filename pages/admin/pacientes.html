@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saúde Digital — Pacientes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/global.css" />
+  <link rel="stylesheet" href="pacientes.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar" id="topbar"></header>
+    <div class="app-body">
+      <nav class="sidebar" id="sidebar"></nav>
+      <main class="conteudo">
+        <div class="cabecalho-pagina">
+          <div>
+            <h1>Pacientes</h1>
+            <p class="texto-suave">Pacientes cadastrados na sua organização. Dados sensíveis ficam criptografados.</p>
+          </div>
+          <button type="button" class="botao botao-primario" id="botao-novo-paciente">+ Novo paciente</button>
+        </div>
+
+        <div class="cartao">
+          <div class="barra-busca">
+            <input type="search" id="campo-busca" placeholder="Buscar por nome..." />
+          </div>
+          <div class="wrapper-tabela">
+            <table>
+              <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>Sexo</th>
+                  <th>Idade</th>
+                  <th>Profissional responsável</th>
+                  <th style="width:160px">Ações</th>
+                </tr>
+              </thead>
+              <tbody id="corpo-tabela-pacientes">
+                <tr><td colspan="5" class="tabela-vazia">Carregando...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <dialog class="modal" id="modal-paciente">
+    <form method="dialog" id="formulario-paciente">
+      <div class="modal-cabecalho">
+        <h2 id="titulo-modal-paciente">Novo paciente</h2>
+        <button type="button" class="modal-fechar" data-fechar="modal-paciente" aria-label="Fechar">✕</button>
+      </div>
+      <div class="modal-corpo">
+        <input type="hidden" id="paciente-id" />
+        <div class="campo">
+          <label for="paciente-nome">Nome completo</label>
+          <input type="text" id="paciente-nome" required />
+        </div>
+        <div class="linha-campos">
+          <div class="campo">
+            <label for="paciente-sexo">Sexo</label>
+            <select id="paciente-sexo" required>
+              <option value="Feminino">Feminino</option>
+              <option value="Masculino">Masculino</option>
+              <option value="Outro">Outro</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="paciente-nascimento">Data de nascimento</label>
+            <input type="date" id="paciente-nascimento" required />
+          </div>
+        </div>
+        <div class="campo">
+          <label for="paciente-email">E-mail</label>
+          <input type="email" id="paciente-email" required />
+        </div>
+        <div class="campo">
+          <label for="paciente-profissional">Profissional responsável</label>
+          <select id="paciente-profissional">
+            <option value="">Sem vínculo definido</option>
+          </select>
+          <p class="dica">O paciente poderá ver e solicitar horários na agenda deste profissional.</p>
+        </div>
+        <div id="area-senha-gerada"></div>
+      </div>
+      <div class="modal-rodape">
+        <button type="button" class="botao botao-fantasma" data-fechar="modal-paciente">Cancelar</button>
+        <button type="submit" class="botao botao-primario">Salvar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/aplicacao.js"></script>
+  <script src="pacientes.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saúde Digital — Entrar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/index.css" />
+</head>
+<body class="pagina-login">
+
+  <div class="login-envolucro">
+    <section class="login-apresentacao">
+      <div class="marca marca-grande"><span class="marca-ponto"></span>Saúde Digital</div>
+      <h1>Cuidado conectado entre pacientes e profissionais de saúde.</h1>
+      <p class="texto-suave">
+        Uma plataforma única para hospitais, planos de saúde e organizações acompanharem
+        consultas, evolução clínica e bem-estar dos pacientes — com agenda integrada e
+        recomendações personalizadas.
+      </p>
+      <ul class="lista-recursos">
+        <li>🗓️ Agenda de consultas com solicitação pelo paciente</li>
+        <li>🩺 Registro de peso, IMC, pressão, glicemia, sono e mais</li>
+        <li>🔔 Notificações de medicamentos e bem-estar</li>
+        <li>🔒 Dados sensíveis protegidos com criptografia</li>
+      </ul>
+      <p class="texto-fraco">Versão 1.0 — protótipo funcional, dados salvos localmente no seu navegador.</p>
+    </section>
+
+    <section class="login-cartao cartao">
+      <div class="abas-papel" id="abas-papel">
+        <button type="button" class="aba-papel ativo" data-papel="paciente">Paciente</button>
+        <button type="button" class="aba-papel" data-papel="profissional">Profissional</button>
+        <button type="button" class="aba-papel" data-papel="admin">Administrador</button>
+        <button type="button" class="aba-papel" data-papel="superadmin">Super Admin</button>
+      </div>
+
+      <h2 id="titulo-login">Entrar como paciente</h2>
+      <p class="texto-fraco" id="descricao-login">Use o e-mail e a senha cadastrados pelo seu profissional ou administrador.</p>
+
+      <div class="aviso-conta-teste" id="aviso-conta-teste" hidden>
+        Conta de teste: <strong>superadm@email.com</strong> / <strong>superadm@senha</strong>
+      </div>
+
+      <form id="formulario-login" novalidate>
+        <div class="campo">
+          <label for="campo-email">E-mail</label>
+          <input type="email" id="campo-email" name="email" autocomplete="username" required />
+        </div>
+        <div class="campo">
+          <label for="campo-senha">Senha</label>
+          <input type="password" id="campo-senha" name="senha" autocomplete="current-password" required />
+        </div>
+        <p class="mensagem-erro" id="mensagem-erro" hidden></p>
+        <button type="submit" class="botao botao-primario botao-bloco" id="botao-entrar">Entrar</button>
+      </form>
+
+      <p class="texto-fraco texto-centro rodape-login">
+        Cadastros de profissionais e pacientes são feitos pela administração da sua organização.
+      </p>
+    </section>
+  </div>
+
+  <footer class="rodape-site">
+    <span>© 2026 Saúde Digital — protótipo de demonstração.</span>
+    <button type="button" class="link-termos" id="link-termos">Termos de uso</button>
+  </footer>
+
+  <dialog class="modal" id="modal-termos">
+    <div class="modal-cabecalho">
+      <h2>Termos de uso</h2>
+      <button type="button" class="modal-fechar" id="fechar-termos" aria-label="Fechar">✕</button>
+    </div>
+    <div class="modal-corpo">
+      <p>Este é um protótipo (1ª versão) do sistema <strong>Saúde Digital</strong>, executado inteiramente no seu navegador.</p>
+      <ul class="lista-termos">
+        <li>Os dados informados (cadastros, consultas, evolução, agenda) são armazenados <strong>localmente</strong>, no LocalStorage do seu navegador — nesta versão nada é enviado a um servidor externo.</li>
+        <li>Dados sensíveis de pacientes, consultas e evolução são armazenados de forma <strong>criptografada</strong>; senhas de acesso nunca são salvas em texto puro, apenas como hash.</li>
+        <li><strong>No momento não estamos utilizando cookies</strong>, para melhor performance do sistema. O uso de cookies está previsto para ser implementado na <strong>2ª versão</strong> da aplicação web.</li>
+        <li>Por ser uma versão de demonstração, ao limpar os dados do navegador todas as informações cadastradas serão perdidas.</li>
+      </ul>
+    </div>
+    <div class="modal-rodape">
+      <button type="button" class="botao botao-primario" id="aceitar-termos">Entendi, continuar</button>
+    </div>
+  </dialog>
+
+  <script src="js/storage.js"></script>
+  <script src="js/aplicacao.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>

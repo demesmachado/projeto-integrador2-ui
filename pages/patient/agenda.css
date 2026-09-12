@@ -1,0 +1,6 @@
+/* agenda.css (patient) */
+
+#corpo-horarios-disponiveis td:first-child,
+#corpo-minhas-consultas td:first-child {
+  font-weight: 500;
+}

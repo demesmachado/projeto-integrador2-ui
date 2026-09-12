@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saúde Digital — Profissionais</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/global.css" />
+  <link rel="stylesheet" href="profissionais.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar" id="topbar"></header>
+    <div class="app-body">
+      <nav class="sidebar" id="sidebar"></nav>
+      <main class="conteudo">
+        <div class="cabecalho-pagina">
+          <div>
+            <h1>Profissionais</h1>
+            <p class="texto-suave">Médicos, enfermeiros e técnicos em enfermagem da sua organização.</p>
+          </div>
+          <button type="button" class="botao botao-primario" id="botao-novo-profissional">+ Novo profissional</button>
+        </div>
+
+        <div class="cartao">
+          <div class="barra-busca">
+            <input type="search" id="campo-busca" placeholder="Buscar por nome ou especialidade..." />
+          </div>
+          <div class="wrapper-tabela">
+            <table>
+              <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>Especialidade</th>
+                  <th>CRM</th>
+                  <th>Telefone</th>
+                  <th>E-mail</th>
+                  <th>Pacientes</th>
+                  <th style="width:160px">Ações</th>
+                </tr>
+              </thead>
+              <tbody id="corpo-tabela-profissionais"></tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <dialog class="modal" id="modal-profissional">
+    <form method="dialog" id="formulario-profissional">
+      <div class="modal-cabecalho">
+        <h2 id="titulo-modal-profissional">Novo profissional</h2>
+        <button type="button" class="modal-fechar" data-fechar="modal-profissional" aria-label="Fechar">✕</button>
+      </div>
+      <div class="modal-corpo">
+        <input type="hidden" id="profissional-id" />
+        <div class="campo">
+          <label for="profissional-nome">Nome completo</label>
+          <input type="text" id="profissional-nome" required />
+        </div>
+        <div class="linha-campos">
+          <div class="campo">
+            <label for="profissional-especialidade">Especialidade</label>
+            <select id="profissional-especialidade" required>
+              <option value="Médico(a)">Médico(a)</option>
+              <option value="Enfermeiro(a)">Enfermeiro(a)</option>
+              <option value="Técnico(a) em Enfermagem">Técnico(a) em Enfermagem</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="profissional-crm">CRM / Registro profissional</label>
+            <input type="text" id="profissional-crm" placeholder="Ex: CRM 12345-PI" />
+          </div>
+        </div>
+        <div class="linha-campos">
+          <div class="campo">
+            <label for="profissional-telefone">Telefone</label>
+            <input type="tel" id="profissional-telefone" placeholder="(89) 90000-0000" />
+          </div>
+          <div class="campo">
+            <label for="profissional-email">E-mail</label>
+            <input type="email" id="profissional-email" required />
+          </div>
+        </div>
+        <div id="area-senha-gerada"></div>
+      </div>
+      <div class="modal-rodape">
+        <button type="button" class="botao botao-fantasma" data-fechar="modal-profissional">Cancelar</button>
+        <button type="submit" class="botao botao-primario">Salvar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/aplicacao.js"></script>
+  <script src="profissionais.js"></script>
+</body>
+</html>

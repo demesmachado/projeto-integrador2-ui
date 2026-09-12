@@ -1,0 +1,41 @@
+/* historico.css (patient) */
+
+.item-historico-paciente {
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: 16px 18px;
+  margin-bottom: 14px;
+  box-shadow: var(--sombra-suave);
+}
+
+.item-historico-paciente .cabecalho-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.item-historico-paciente .grade-dados-consulta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.item-historico-paciente .item-dado-consulta {
+  background: var(--verde-50);
+  border-radius: var(--raio-pequeno);
+  padding: 9px 11px;
+}
+
+.item-historico-paciente .item-dado-consulta .rotulo {
+  display: block;
+  font-size: 12px;
+  color: var(--cor-texto-suave);
+}
+
+.item-historico-paciente .item-dado-consulta .valor-dado {
+  font-weight: 700;
+}

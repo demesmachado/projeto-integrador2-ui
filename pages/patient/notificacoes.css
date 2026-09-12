@@ -1,0 +1,25 @@
+/* notificacoes.css (patient) */
+
+.item-notificacao {
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-left: 4px solid var(--cor-primaria);
+  border-radius: var(--raio-pequeno);
+  padding: 13px 16px;
+  margin-bottom: 10px;
+  box-shadow: var(--sombra-suave);
+}
+
+.item-notificacao.nao-lida {
+  border-left-color: var(--azul-500);
+  background: var(--azul-100);
+}
+
+.item-notificacao .cabecalho-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+}

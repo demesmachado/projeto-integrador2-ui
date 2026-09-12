@@ -1,0 +1,51 @@
+/* dashboard.css (patient) */
+
+#nome-paciente {
+  color: var(--cor-primaria-escura);
+}
+
+.grade-indicadores {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.cartao-indicador {
+  border-radius: var(--raio);
+  padding: 18px 20px;
+  box-shadow: var(--sombra-suave);
+  border: 1px solid var(--cor-borda);
+  background: var(--cor-superficie);
+}
+
+.cartao-indicador .rotulo-indicador {
+  font-size: 13px;
+  color: var(--cor-texto-suave);
+  font-weight: 500;
+}
+
+.cartao-indicador .valor-indicador {
+  font-size: 26px;
+  font-weight: 700;
+  margin: 4px 0 8px;
+}
+
+.item-consulta-mini {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--cor-borda);
+  font-size: 13.5px;
+}
+
+.item-consulta-mini:last-child { border-bottom: none; }
+
+.item-notificacao-mini {
+  padding: 9px 0;
+  border-bottom: 1px solid var(--cor-borda);
+  font-size: 13.5px;
+}
+
+.item-notificacao-mini:last-child { border-bottom: none; }

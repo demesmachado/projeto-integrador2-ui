@@ -1,0 +1,7 @@
+/* dashboard.css (admin) */
+
+#nome-organizacao {
+  color: var(--cor-primaria-escura);
+}
+
+.grade-cartoes .cartao-metrica:nth-child(3) .valor { color: var(--azul-500); }

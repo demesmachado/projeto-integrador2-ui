@@ -1,0 +1,146 @@
+/* index.css — página de entrada (landing + login) */
+
+body.pagina-login {
+  min-height: 100vh;
+  background: radial-gradient(circle at 15% 15%, var(--verde-100), transparent 45%),
+    radial-gradient(circle at 85% 20%, var(--azul-100), transparent 50%),
+    var(--cor-fundo);
+  display: flex;
+  flex-direction: column;
+}
+
+.login-envolucro {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 40px;
+  align-items: center;
+  max-width: 1080px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+
+.marca-grande {
+  font-size: 22px;
+  margin-bottom: 22px;
+}
+
+.login-apresentacao h1 {
+  font-size: 32px;
+  line-height: 1.25;
+  margin-bottom: 14px;
+}
+
+.login-apresentacao p {
+  max-width: 440px;
+}
+
+.lista-recursos {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.login-cartao {
+  padding: 28px 26px;
+  max-width: 380px;
+  justify-self: end;
+  width: 100%;
+}
+
+.abas-papel {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+  background: var(--verde-50);
+  padding: 5px;
+  border-radius: var(--raio);
+  margin-bottom: 20px;
+}
+
+.aba-papel {
+  border: none;
+  background: transparent;
+  padding: 8px 6px;
+  border-radius: var(--raio-pequeno);
+  font-family: var(--fonte);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cor-texto-suave);
+  cursor: pointer;
+}
+
+.aba-papel.ativo {
+  background: #fff;
+  color: var(--cor-primaria-escura);
+  box-shadow: var(--sombra-suave);
+}
+
+.aviso-conta-teste {
+  background: var(--cor-secundaria-clara);
+  color: var(--azul-700);
+  border-radius: var(--raio-pequeno);
+  padding: 8px 10px;
+  font-size: 12.5px;
+  margin-bottom: 14px;
+}
+
+.mensagem-erro {
+  background: var(--cor-perigo-clara);
+  color: var(--cor-perigo);
+  border-radius: var(--raio-pequeno);
+  padding: 8px 10px;
+  font-size: 13px;
+  margin: -4px 0 14px;
+}
+
+.rodape-login {
+  margin-top: 16px;
+}
+
+.rodape-site {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  font-size: 12.5px;
+  color: var(--cor-texto-fraco);
+}
+
+.link-termos {
+  border: none;
+  background: transparent;
+  color: var(--cor-primaria-escura);
+  font-family: var(--fonte);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.lista-termos {
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lista-termos li { font-size: 14px; }
+
+@media (max-width: 860px) {
+  .login-envolucro {
+    grid-template-columns: 1fr;
+    padding-top: 32px;
+  }
+  .login-cartao { justify-self: stretch; max-width: none; }
+  .login-apresentacao { text-align: center; }
+  .login-apresentacao p { margin-left: auto; margin-right: auto; }
+  .lista-recursos { align-items: center; }
+}

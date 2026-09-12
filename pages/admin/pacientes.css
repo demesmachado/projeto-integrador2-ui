@@ -1,0 +1,9 @@
+/* pacientes.css (admin) */
+
+#corpo-tabela-pacientes td:first-child {
+  font-weight: 500;
+}
+
+#area-senha-gerada:empty {
+  display: none;
+}

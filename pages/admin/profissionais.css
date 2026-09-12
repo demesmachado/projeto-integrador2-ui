@@ -1,0 +1,9 @@
+/* profissionais.css (admin) */
+
+#corpo-tabela-profissionais td:first-child {
+  font-weight: 500;
+}
+
+#area-senha-gerada:empty {
+  display: none;
+}
