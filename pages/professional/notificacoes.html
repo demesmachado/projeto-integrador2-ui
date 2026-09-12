@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saúde Digital — Notificações</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/global.css" />
+  <link rel="stylesheet" href="notificacoes.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar" id="topbar"></header>
+    <div class="app-body">
+      <nav class="sidebar" id="sidebar"></nav>
+      <main class="conteudo">
+        <div class="cabecalho-pagina">
+          <div>
+            <h1>Notificações</h1>
+            <p class="texto-suave">Envie avisos de medicamentos, consultas e indicadores de bem-estar para seus pacientes.</p>
+          </div>
+          <button type="button" class="botao botao-primario" id="botao-nova-notificacao">+ Nova notificação</button>
+        </div>
+
+        <div class="cartao">
+          <div class="barra-busca">
+            <select id="filtro-paciente"><option value="">Todos os pacientes</option></select>
+            <select id="filtro-tipo">
+              <option value="">Todos os tipos</option>
+              <option value="medicamento">Medicamento</option>
+              <option value="consulta">Consulta</option>
+              <option value="bemEstar">Bem-estar</option>
+            </select>
+          </div>
+          <div class="wrapper-tabela">
+            <table>
+              <thead><tr><th>Paciente</th><th>Tipo</th><th>Título</th><th>Enviada em</th><th style="width:120px">Ações</th></tr></thead>
+              <tbody id="corpo-tabela-notificacoes"></tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <dialog class="modal" id="modal-notificacao">
+    <form method="dialog" id="formulario-notificacao">
+      <div class="modal-cabecalho">
+        <h2>Nova notificação</h2>
+        <button type="button" class="modal-fechar" data-fechar="modal-notificacao" aria-label="Fechar">✕</button>
+      </div>
+      <div class="modal-corpo">
+        <div class="campo">
+          <label for="notificacao-paciente">Paciente</label>
+          <select id="notificacao-paciente" required></select>
+        </div>
+        <div class="campo">
+          <label for="notificacao-tipo">Tipo</label>
+          <select id="notificacao-tipo" required>
+            <option value="medicamento">Medicamento</option>
+            <option value="consulta">Aviso de consulta</option>
+            <option value="bemEstar">Indicador de bem-estar</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="notificacao-titulo">Título</label>
+          <input type="text" id="notificacao-titulo" placeholder="Ex: Hora de tomar sua medicação" required />
+        </div>
+        <div class="campo">
+          <label for="notificacao-mensagem">Mensagem</label>
+          <textarea id="notificacao-mensagem" placeholder="Detalhe a orientação..." required></textarea>
+        </div>
+      </div>
+      <div class="modal-rodape">
+        <button type="button" class="botao botao-fantasma" data-fechar="modal-notificacao">Cancelar</button>
+        <button type="submit" class="botao botao-primario">Enviar notificação</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/aplicacao.js"></script>
+  <script src="notificacoes.js"></script>
+</body>
+</html>

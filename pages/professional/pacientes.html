@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saúde Digital — Meus Pacientes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/global.css" />
+  <link rel="stylesheet" href="pacientes.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar" id="topbar"></header>
+    <div class="app-body">
+      <nav class="sidebar" id="sidebar"></nav>
+      <main class="conteudo">
+        <div class="cabecalho-pagina">
+          <div>
+            <h1>Meus pacientes</h1>
+            <p class="texto-suave">Pacientes vinculados a você. Clique em um paciente para ver a ficha completa.</p>
+          </div>
+        </div>
+
+        <div class="cartao">
+          <div class="barra-busca">
+            <input type="search" id="campo-busca" placeholder="Buscar por nome..." />
+          </div>
+          <div class="wrapper-tabela">
+            <table>
+              <thead><tr><th>Paciente</th><th>Sexo</th><th>Idade</th><th style="width:140px">Ações</th></tr></thead>
+              <tbody id="corpo-tabela-pacientes">
+                <tr><td colspan="4" class="tabela-vazia">Carregando...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/aplicacao.js"></script>
+  <script src="pacientes.js"></script>
+</body>
+</html>

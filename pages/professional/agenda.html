@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saúde Digital — Agenda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/global.css" />
+  <link rel="stylesheet" href="agenda.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar" id="topbar"></header>
+    <div class="app-body">
+      <nav class="sidebar" id="sidebar"></nav>
+      <main class="conteudo">
+        <div class="cabecalho-pagina">
+          <div>
+            <h1>Agenda</h1>
+            <p class="texto-suave">Crie horários disponíveis e gerencie as solicitações dos seus pacientes.</p>
+          </div>
+          <button type="button" class="botao botao-primario" id="botao-novo-horario">+ Novo horário</button>
+        </div>
+
+        <div class="cartao">
+          <div class="barra-busca">
+            <select id="filtro-status">
+              <option value="">Todos os status</option>
+              <option value="disponivel">Disponível</option>
+              <option value="solicitada">Aguardando confirmação</option>
+              <option value="confirmada">Confirmada</option>
+              <option value="realizada">Realizada</option>
+              <option value="recusada">Recusada</option>
+              <option value="cancelada">Cancelada</option>
+            </select>
+            <input type="search" id="campo-busca" placeholder="Buscar por paciente..." />
+          </div>
+          <div class="wrapper-tabela">
+            <table>
+              <thead>
+                <tr><th>Data</th><th>Hora</th><th>Paciente</th><th>Status</th><th style="width:260px">Ações</th></tr>
+              </thead>
+              <tbody id="corpo-tabela-agenda"></tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <dialog class="modal" id="modal-horario">
+    <form method="dialog" id="formulario-horario">
+      <div class="modal-cabecalho">
+        <h2>Novo horário disponível</h2>
+        <button type="button" class="modal-fechar" data-fechar="modal-horario" aria-label="Fechar">✕</button>
+      </div>
+      <div class="modal-corpo">
+        <div class="linha-campos">
+          <div class="campo">
+            <label for="horario-data">Data</label>
+            <input type="date" id="horario-data" required />
+          </div>
+          <div class="campo">
+            <label for="horario-hora">Hora</label>
+            <input type="time" id="horario-hora" required />
+          </div>
+        </div>
+      </div>
+      <div class="modal-rodape">
+        <button type="button" class="botao botao-fantasma" data-fechar="modal-horario">Cancelar</button>
+        <button type="submit" class="botao botao-primario">Criar horário</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="modal modal-largo" id="modal-consulta">
+    <form method="dialog" id="formulario-consulta">
+      <div class="modal-cabecalho">
+        <h2>Registrar consulta — <span id="paciente-nome-consulta"></span></h2>
+        <button type="button" class="modal-fechar" data-fechar="modal-consulta" aria-label="Fechar">✕</button>
+      </div>
+      <div class="modal-corpo">
+        <input type="hidden" id="consulta-agendamento-id" />
+        <p class="texto-fraco">Todos os campos abaixo são opcionais — preencha apenas o que for pertinente para este atendimento.</p>
+        <div class="linha-campos">
+          <div class="campo">
+            <label for="consulta-peso">Peso (kg)</label>
+            <input type="number" step="0.1" min="0" id="consulta-peso" placeholder="Ex: 68.5" />
+          </div>
+          <div class="campo">
+            <label for="consulta-altura">Altura (m)</label>
+            <input type="number" step="0.01" min="0" id="consulta-altura" placeholder="Ex: 1.70" />
+          </div>
+          <div class="campo">
+            <label>IMC calculado</label>
+            <input type="text" id="consulta-imc" placeholder="—" readonly />
+          </div>
+        </div>
+        <div class="linha-campos">
+          <div class="campo">
+            <label for="consulta-pressao">Pressão arterial (mmHg)</label>
+            <input type="text" id="consulta-pressao" placeholder="Ex: 120/80" />
+          </div>
+          <div class="campo">
+            <label for="consulta-bpm">Frequência cardíaca (bpm)</label>
+            <input type="number" min="0" id="consulta-bpm" placeholder="Ex: 72" />
+          </div>
+          <div class="campo">
+            <label for="consulta-glicemia">Glicemia (mg/dL)</label>
+            <input type="number" min="0" id="consulta-glicemia" placeholder="Ex: 95" />
+          </div>
+        </div>
+        <div class="linha-campos">
+          <div class="campo">
+            <label for="consulta-sono">Hábitos de sono</label>
+            <select id="consulta-sono">
+              <option value="">Não avaliado</option>
+              <option value="Regular (7-9h)">Regular (7–9h por noite)</option>
+              <option value="Insuficiente (<6h)">Insuficiente (menos de 6h)</option>
+              <option value="Irregular">Irregular</option>
+              <option value="Com insônia">Com insônia</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="consulta-atividade">Atividade física</label>
+            <select id="consulta-atividade">
+              <option value="">Não avaliado</option>
+              <option value="Sedentário">Sedentário</option>
+              <option value="Leve (1-2x/semana)">Leve (1–2x por semana)</option>
+              <option value="Moderada (3-4x/semana)">Moderada (3–4x por semana)</option>
+              <option value="Intensa (5+/semana)">Intensa (5x ou mais por semana)</option>
+            </select>
+          </div>
+        </div>
+        <div class="campo">
+          <label for="consulta-alimentacao">Alimentação</label>
+          <textarea id="consulta-alimentacao" placeholder="Observações sobre a alimentação do paciente..."></textarea>
+        </div>
+        <div class="campo">
+          <label for="consulta-observacoes">Observações gerais</label>
+          <textarea id="consulta-observacoes" placeholder="Observações clínicas gerais sobre a consulta..."></textarea>
+        </div>
+      </div>
+      <div class="modal-rodape">
+        <button type="button" class="botao botao-fantasma" data-fechar="modal-consulta">Cancelar</button>
+        <button type="submit" class="botao botao-primario">Registrar consulta</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="modal modal-largo" id="modal-ver-consulta">
+    <div class="modal-cabecalho">
+      <h2>Dados da consulta</h2>
+      <button type="button" class="modal-fechar" data-fechar="modal-ver-consulta" aria-label="Fechar">✕</button>
+    </div>
+    <div class="modal-corpo" id="corpo-ver-consulta"></div>
+    <div class="modal-rodape">
+      <button type="button" class="botao botao-fantasma" data-fechar="modal-ver-consulta">Fechar</button>
+    </div>
+  </dialog>
+
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/aplicacao.js"></script>
+  <script src="agenda.js"></script>
+</body>
+</html>

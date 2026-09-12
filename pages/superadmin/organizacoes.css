@@ -1,0 +1,9 @@
+/* organizacoes.css (superadmin) */
+
+#corpo-tabela-organizacoes td:first-child {
+  font-weight: 500;
+}
+
+#corpo-tabela-admins td:first-child {
+  font-weight: 500;
+}

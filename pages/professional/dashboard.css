@@ -1,0 +1,8 @@
+/* dashboard.css (professional) */
+
+#nome-profissional {
+  color: var(--cor-primaria-escura);
+}
+
+.grade-cartoes .cartao-metrica:nth-child(2) .valor { color: var(--azul-500); }
+.grade-cartoes .cartao-metrica:nth-child(3) .valor { color: var(--cor-alerta); }

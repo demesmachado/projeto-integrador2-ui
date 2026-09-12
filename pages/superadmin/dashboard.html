@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saúde Digital — Painel do Super Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/global.css" />
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar" id="topbar"></header>
+    <div class="app-body">
+      <nav class="sidebar" id="sidebar"></nav>
+      <main class="conteudo">
+        <div class="cabecalho-pagina">
+          <div>
+            <h1>Painel geral</h1>
+            <p class="texto-suave">Visão consolidada de todas as organizações cadastradas no sistema.</p>
+          </div>
+          <a class="botao botao-primario" href="organizacoes.html">+ Nova organização</a>
+        </div>
+
+        <div class="grade-cartoes">
+          <div class="cartao-metrica">
+            <span class="rotulo">Organizações</span>
+            <span class="valor" id="m-orgs">0</span>
+          </div>
+          <div class="cartao-metrica">
+            <span class="rotulo">Administradores</span>
+            <span class="valor" id="m-admins">0</span>
+          </div>
+          <div class="cartao-metrica">
+            <span class="rotulo">Profissionais</span>
+            <span class="valor" id="m-prof">0</span>
+          </div>
+          <div class="cartao-metrica">
+            <span class="rotulo">Pacientes</span>
+            <span class="valor" id="m-pac">0</span>
+          </div>
+        </div>
+
+        <div class="cartao">
+          <h2>Organizações</h2>
+          <p class="texto-fraco">Hospitais, planos de saúde e demais organizações vinculadas ao sistema.</p>
+          <div class="wrapper-tabela">
+            <table>
+              <thead>
+                <tr>
+                  <th>Organização</th>
+                  <th>Tipo</th>
+                  <th>Admins</th>
+                  <th>Profissionais</th>
+                  <th>Pacientes</th>
+                </tr>
+              </thead>
+              <tbody id="corpo-tabela-orgs"></tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/aplicacao.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>

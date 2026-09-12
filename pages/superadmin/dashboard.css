@@ -1,0 +1,10 @@
+/* dashboard.css (superadmin) */
+
+#corpo-tabela-orgs td:first-child {
+  font-weight: 500;
+}
+
+.grade-cartoes .cartao-metrica:nth-child(1) .valor { color: var(--cor-primaria-escura); }
+.grade-cartoes .cartao-metrica:nth-child(2) .valor { color: var(--azul-700); }
+.grade-cartoes .cartao-metrica:nth-child(3) .valor { color: var(--verde-700); }
+.grade-cartoes .cartao-metrica:nth-child(4) .valor { color: var(--azul-500); }

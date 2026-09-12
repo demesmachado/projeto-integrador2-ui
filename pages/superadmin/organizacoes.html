@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saúde Digital — Organizações</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/global.css" />
+  <link rel="stylesheet" href="organizacoes.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar" id="topbar"></header>
+    <div class="app-body">
+      <nav class="sidebar" id="sidebar"></nav>
+      <main class="conteudo">
+        <div class="cabecalho-pagina">
+          <div>
+            <h1>Organizações</h1>
+            <p class="texto-suave">Hospitais, planos de saúde e organizações de saúde vinculados ao sistema.</p>
+          </div>
+          <button type="button" class="botao botao-primario" id="botao-nova-organizacao">+ Nova organização</button>
+        </div>
+
+        <div class="cartao">
+          <div class="wrapper-tabela">
+            <table>
+              <thead>
+                <tr>
+                  <th>Organização</th>
+                  <th>Tipo</th>
+                  <th>Admins</th>
+                  <th style="width:280px">Ações</th>
+                </tr>
+              </thead>
+              <tbody id="corpo-tabela-organizacoes"></tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <dialog class="modal" id="modal-organizacao">
+    <form method="dialog" id="formulario-organizacao">
+      <div class="modal-cabecalho">
+        <h2 id="titulo-modal-organizacao">Nova organização</h2>
+        <button type="button" class="modal-fechar" data-fechar="modal-organizacao" aria-label="Fechar">✕</button>
+      </div>
+      <div class="modal-corpo">
+        <input type="hidden" id="organizacao-id" />
+        <div class="campo">
+          <label for="organizacao-nome">Nome da organização</label>
+          <input type="text" id="organizacao-nome" placeholder="Ex: Hospital São Lucas" required />
+        </div>
+        <div class="campo">
+          <label for="organizacao-tipo">Tipo</label>
+          <select id="organizacao-tipo" required>
+            <option value="Hospital">Hospital</option>
+            <option value="Plano de Saúde">Plano de saúde</option>
+            <option value="Organização de Saúde">Organização de saúde</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-rodape">
+        <button type="button" class="botao botao-fantasma" data-fechar="modal-organizacao">Cancelar</button>
+        <button type="submit" class="botao botao-primario" id="botao-salvar-organizacao">Salvar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="modal modal-largo" id="modal-admins">
+    <div class="modal-cabecalho">
+      <h2>Administradores — <span id="nome-organizacao-admins"></span></h2>
+      <button type="button" class="modal-fechar" data-fechar="modal-admins" aria-label="Fechar">✕</button>
+    </div>
+    <div class="modal-corpo">
+      <div class="grupo-botoes" style="margin-bottom:14px">
+        <button type="button" class="botao botao-secundario botao-pequeno" id="botao-novo-admin">+ Novo administrador</button>
+      </div>
+      <div class="wrapper-tabela">
+        <table>
+          <thead>
+            <tr><th>Nome</th><th>E-mail</th><th style="width:160px">Ações</th></tr>
+          </thead>
+          <tbody id="corpo-tabela-admins"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="modal-rodape">
+      <button type="button" class="botao botao-fantasma" data-fechar="modal-admins">Fechar</button>
+    </div>
+  </dialog>
+
+  <dialog class="modal" id="modal-admin-form">
+    <form method="dialog" id="formulario-admin">
+      <div class="modal-cabecalho">
+        <h2 id="titulo-modal-admin">Novo administrador</h2>
+        <button type="button" class="modal-fechar" data-fechar="modal-admin-form" aria-label="Fechar">✕</button>
+      </div>
+      <div class="modal-corpo">
+        <input type="hidden" id="admin-id" />
+        <div class="campo">
+          <label for="admin-nome">Nome</label>
+          <input type="text" id="admin-nome" required />
+        </div>
+        <div class="campo">
+          <label for="admin-email">E-mail</label>
+          <input type="email" id="admin-email" required />
+        </div>
+        <div class="campo">
+          <label for="admin-senha">Senha <span id="rotulo-senha-opcional" class="texto-fraco" hidden>(deixe em branco para manter a atual)</span></label>
+          <div class="campo-com-botao">
+            <input type="text" id="admin-senha" placeholder="Defina uma senha de acesso" />
+            <button type="button" class="botao botao-contorno botao-pequeno" id="botao-gerar-senha">Gerar</button>
+          </div>
+          <p class="dica">Como Super Admin, você define a senha inicial deste administrador.</p>
+        </div>
+      </div>
+      <div class="modal-rodape">
+        <button type="button" class="botao botao-fantasma" data-fechar="modal-admin-form">Cancelar</button>
+        <button type="submit" class="botao botao-primario">Salvar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/aplicacao.js"></script>
+  <script src="organizacoes.js"></script>
+</body>
+</html>
